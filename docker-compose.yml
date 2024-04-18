@@ -1,0 +1,20 @@
+version: '3.0'
+services:
+  postgres:
+    image: crunchydata/crunchy-postgres:centos8-13.6-4.7.5@sha256:e518ce5a8b4c51a04afa9f18a4f43db86d3a293e2c2e97b5931434efa11dce8d
+    restart: always
+    ports:
+      - "5437:5432"
+    environment:
+      - MAX_CONNECTIONS=1000
+      - MODE=postgres
+      - PG_DATABASE=training
+      - PG_MODE=primary
+      - PG_PASSWORD=training
+      - PG_PRIMARY_PORT=5432
+      - PG_PRIMARY_USER=training_primary_primary_user
+      - PG_PRIMARY_PASSWORD=training
+      - PG_ROOT_PASSWORD=secret
+      - PG_USER=training_user
+    container_name: training-app-docker-compose
+    hostname: postgres

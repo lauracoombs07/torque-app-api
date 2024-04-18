@@ -1,0 +1,16 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: training-app
+  datasource:
+    url: jdbc:postgresql://localhost:5437/training
+    username: training_user
+    password: training
+  flyway:
+    baseline-on-migrate: true
+    sql-migration-prefix: V
+    sql-migration-separator: __
+    sql-migration-suffixes: .sql
+    validate-on-migrate: true
